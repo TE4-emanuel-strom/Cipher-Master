@@ -1,13 +1,18 @@
 package main
-
 import tests.TestClass
 
 
-fun main(){
+
+
+fun main() {
+
+    runTests()
+}
+
+fun runTests() {
     val tests = arrayOf<TestClass>(
         TestClass("Testing hello()", "Hello, World!", hello()),
-        TestClass("Testing stoopid test", "you failed!!!", "you failed!!!"),
-        TestClass("Other stoopid test", false, 1 == 2)
+        TestClass("failing test", true, false)
     )
     TestClass.runTests(tests)
 }
