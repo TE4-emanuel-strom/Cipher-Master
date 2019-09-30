@@ -24,10 +24,10 @@ open class TestClass(
                 for (test in failedTests) {
                     response += test.key
                 }
-                response += " failed. \n $numberOfFailedTests of $numberOfTests tests succeeded"
+                response += " failed. \n $numberOfFailedTests of $numberOfTests tests succeeded $ANSI_RESET"
                 response
             } else {
-                ANSI_GREEN + "All $numberOfTests tests passed!" + ANSI_RESET
+               "$ANSI_GREEN all $numberOfTests tests passed! $ANSI_RESET"
             })
         }
     }
