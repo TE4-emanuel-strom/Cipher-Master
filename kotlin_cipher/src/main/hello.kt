@@ -4,7 +4,12 @@ import tests.TestClass
 
 
 fun main(){
-   TestClass.runTests()
+    val tests = arrayOf<TestClass>(
+        TestClass("Testing hello()", "Hello, World!", hello()),
+        TestClass("Testing Failure", "you failed!!!", hello())
+    )
+    TestClass.runTests(tests)
+
 }
 
 fun hello(): String {
