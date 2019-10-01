@@ -12,7 +12,8 @@ fun main() {
 fun runTests() {
     val tests = arrayOf<TestClass>(
         TestClass("Testing hello()", "Hello, World!", hello())
-      //  TestClass("failing test", true, false)
+
+
     )
     TestClass.runTests(tests)
 }

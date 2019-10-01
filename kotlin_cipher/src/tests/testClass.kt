@@ -1,8 +1,10 @@
 package tests
 
-val ANSI_RED = "\u001B[31m"
-val ANSI_RESET = "\u001B[0m"
-val ANSI_GREEN = "\u001B[32m"
+const val ANSI_RED = "\u001B[31m"
+const val ANSI_RESET = "\u001B[0m"
+const val ANSI_GREEN = "\u001B[32m"
+
+/* TODO: fix multiple failures*/
 
 open class TestClass(
     private val note: String,
@@ -22,9 +24,10 @@ open class TestClass(
                 val numberOfFailedTests = numberOfTests - failedTests.size
                 var response = ANSI_RED
                 for (test in failedTests) {
-                    response += test.key
+                    val testKey = test.key
+                    response += "\"$testKey\" "
                 }
-                response += " failed. \n $numberOfFailedTests of $numberOfTests tests succeeded $ANSI_RESET"
+                response += "failed. \n $numberOfFailedTests of $numberOfTests tests succeeded $ANSI_RESET"
                 response
             } else {
                "$ANSI_GREEN all $numberOfTests tests passed! $ANSI_RESET"
