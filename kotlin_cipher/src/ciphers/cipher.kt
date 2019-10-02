@@ -3,7 +3,6 @@ import tests.TestClass
 
 open class Cipher() {
 
-
     companion object Characters {
         val alphabetArray = arrayOf(
             'a', 'b', 'c', 'd',
@@ -20,19 +19,20 @@ open class Cipher() {
             ' ', '!', '?', '\n'
         )
 
-        fun decode(message: String): String {
-
-        }
-
         public fun oneOfEach(string: String): CharArray {
             var charList = charArrayOf()
-            println(charList)
             for (char in string) {
                 if (char !in charList) { charList += char }
             }
             return charList
         }
+
+        open fun decode(message: String): String {
+            return message
+        }
+
     }
+
 }
 
 
