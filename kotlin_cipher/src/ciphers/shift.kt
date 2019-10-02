@@ -1,10 +1,17 @@
 package ciphers
 
-class ShiftCipher(val stepsShifted: Int) : Cipher() {
+class ShiftCipher(private val message: String, private val stepsShifted: Int) : Cipher() {
 
-    fun fullKeyGenerator(): Map<Char, Char> {
+
+    fun solve(): String {
+        val neededCharacters = oneOfEach(message)
+        val specificKey = keyGenerator(neededCharacters)
+        return(Cipher.decode(message.toCharArray(), specificKey))
+    }
+
+    private fun keyGenerator(charArray: CharArray): MutableMap<Char, Char> {
         val key = mutableMapOf<Char, Char>()
-        for(letter in alphabetArray) key[letter] = transformedLetter(letter)
+        for(letter in charArray) key[letter] = transformedLetter(letter)
         return key
     }
 
@@ -14,14 +21,8 @@ class ShiftCipher(val stepsShifted: Int) : Cipher() {
         if (shiftedIndex >= alphabetArray.size) {
             shiftedIndex -= alphabetArray.size
         }
-        if (shiftedIndex < 0) {
-            shiftedIndex += alphabetArray.size
-        }
+        if (shiftedIndex < 0) shiftedIndex += alphabetArray.size
         return alphabetArray[shiftedIndex]
     }
 
-    fun solve(message: String) {
-        val neededCharacters = oneOfEach(message)
-
-    }
 }

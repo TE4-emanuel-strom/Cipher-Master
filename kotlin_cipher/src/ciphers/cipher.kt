@@ -27,8 +27,10 @@ open class Cipher() {
             return charList
         }
 
-        open fun decode(message: String): String {
-            return message
+        fun decode(message: CharArray, key: MutableMap<Char, Char>): String {
+            var decodedMessage = charArrayOf()
+            message.forEach { decodedMessage += key[it]!! }
+            return decodedMessage.joinToString("")
         }
 
     }
