@@ -25,6 +25,7 @@ fun test() {
         TestClass("decode Shift cipher", "hej", ShiftCipher("gdi", 1).decode()),
         TestClass("decode Shift cipher with negative shift", "hej", ShiftCipher("ifk", -1).decode()),
         TestClass("shift decoder works with special characters", ShiftCipher("gdi!", 1).decode(), "hej!"),
+        TestClass("shift encode works", ShiftCipher("hej", 1).encode(), "gdi"),
 
 
         TestClass("basic test", expectedValue = true, actualValue = true)

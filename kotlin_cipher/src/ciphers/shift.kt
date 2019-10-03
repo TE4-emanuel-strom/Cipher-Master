@@ -3,13 +3,18 @@ package ciphers
 import helpers.HelperClass.Companion.oneOfEach
 
 
-class ShiftCipher(override val message: String, private val stepsShifted: Int) : Cipher(message) {
+class ShiftCipher(override val message: String, private var stepsShifted: Int) : Cipher(message) {
 
 
     fun decode(): String {
         val neededCharacters = oneOfEach(message)
         val specificKey = keyGenerator(neededCharacters)
         return (translate(this, specificKey))
+    }
+
+    fun encode(): String {
+        stepsShifted *= -1
+        return(decode())
     }
 
 
