@@ -1,7 +1,6 @@
 package main
+
 import tests.TestClass
-
-
 
 
 fun main() {

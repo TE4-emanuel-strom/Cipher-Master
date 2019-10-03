@@ -13,16 +13,10 @@ open class Cipher(open val message: String) {
             'y', 'z', 'å', 'ä',
             'ö'
         )
-        val specialCharactersArray = arrayOf(
-            '.', ',', ';', ':',
-            ' ', '!', '?', '\n'
-        )
 
         fun translate(cipher: Cipher, specificKey: MutableMap<Char, Char>): String {
-            println(specificKey)
             var decodedMessage = charArrayOf()
             cipher.message.forEach { decodedMessage += specificKey[it]!! }
-            println(decodedMessage)
             return decodedMessage.joinToString("")
         }
 

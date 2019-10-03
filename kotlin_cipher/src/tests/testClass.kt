@@ -25,12 +25,12 @@ open class TestClass(
                 var response = ANSI_RED
                 for (test in failedTests) {
                     val testKey = test.key
-                    response += "\"$testKey\" "
+                    response += "\"$testKey\", \n"
                 }
                 response += "failed. \n $numberOfFailedTests of $numberOfTests tests succeeded $ANSI_RESET"
                 response
             } else {
-               "$ANSI_GREEN all $numberOfTests tests passed! $ANSI_RESET"
+                "$ANSI_GREEN all $numberOfTests tests passed! $ANSI_RESET"
             })
         }
     }
