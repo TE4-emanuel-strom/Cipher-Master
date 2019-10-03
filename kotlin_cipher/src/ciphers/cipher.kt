@@ -1,6 +1,6 @@
 package ciphers
 
-open class Cipher(open val message: String) {
+open class Cipher() {
 
     companion object Characters {
         val alphabetArray = arrayOf(
@@ -14,9 +14,9 @@ open class Cipher(open val message: String) {
             'ö'
         )
 
-        fun translate(cipher: Cipher, specificKey: MutableMap<Char, Char>): String {
+        fun translate(message: String, specificKey: MutableMap<Char, Char>): String {
             var decodedMessage = charArrayOf()
-            cipher.message.forEach { decodedMessage += specificKey[it]!! }
+            message.forEach { decodedMessage += specificKey[it]!! }
             return decodedMessage.joinToString("")
         }
 
