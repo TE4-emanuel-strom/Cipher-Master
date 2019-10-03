@@ -1,13 +1,17 @@
 package ciphers
 
-class ShiftCipher(private val message: String, private val stepsShifted: Int) : Cipher() {
+import helpers.HelperClass.Companion.oneOfEach
 
 
-    fun solve(): String {
+class ShiftCipher(override val message: String, private val stepsShifted: Int) : Cipher(message) {
+
+
+    fun decode(): String {
         val neededCharacters = oneOfEach(message)
         val specificKey = keyGenerator(neededCharacters)
-        return(Cipher.decode(message.toCharArray(), specificKey))
+        return(translate(this, specificKey))
     }
+
 
     private fun keyGenerator(charArray: CharArray): MutableMap<Char, Char> {
         val key = mutableMapOf<Char, Char>()

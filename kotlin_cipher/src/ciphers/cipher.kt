@@ -1,7 +1,6 @@
 package ciphers
-import tests.TestClass
 
-open class Cipher() {
+open class Cipher(open val message: String) {
 
     companion object Characters {
         val alphabetArray = arrayOf(
@@ -19,17 +18,11 @@ open class Cipher() {
             ' ', '!', '?', '\n'
         )
 
-        public fun oneOfEach(string: String): CharArray {
-            var charList = charArrayOf()
-            for (char in string) {
-                if (char !in charList) { charList += char }
-            }
-            return charList
-        }
-
-        fun decode(message: CharArray, key: MutableMap<Char, Char>): String {
+        fun translate(cipher: Cipher, specificKey: MutableMap<Char, Char>): String {
+            println(specificKey)
             var decodedMessage = charArrayOf()
-            message.forEach { decodedMessage += key[it]!! }
+            cipher.message.forEach { decodedMessage += specificKey[it]!! }
+            println(decodedMessage)
             return decodedMessage.joinToString("")
         }
 
