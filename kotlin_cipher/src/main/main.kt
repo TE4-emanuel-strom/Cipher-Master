@@ -37,7 +37,7 @@ fun testShiftCipher() {
 
 fun testNumberCipher() {
     val testsToRun = arrayOf(
-        TestClass("number cipher generates proper key", NumberCipher("1-2-3").decode(), "abc")
+        TestClass("number cipher generates proper key", NumberCipher("1-2-3-1-2-3 10-2").decode(), "abcabc jb")
     )
 
     TestClass.runTests(testsToRun)

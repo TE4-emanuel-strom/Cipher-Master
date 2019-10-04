@@ -9,7 +9,7 @@ class ShiftCipher(private val message: String, private var stepsShifted: Int) : 
     fun decode(): String {
         val neededCharacters = oneOfEach(message)
         val specificKey = keyGenerator(neededCharacters)
-        return (translate(message, specificKey))
+        return (translate(message.toCharArray(), specificKey))
     }
 
     fun encode(): String {

@@ -14,7 +14,7 @@ open class Cipher() {
             'ö'
         )
 
-        fun translate(message: String, specificKey: MutableMap<Char, Char>): String {
+        fun translate(message: CharArray, specificKey: MutableMap<Char, Char>): String {
             var decodedMessage = charArrayOf()
             message.forEach { decodedMessage += specificKey[it]!! }
             return decodedMessage.joinToString("")
