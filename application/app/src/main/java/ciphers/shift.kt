@@ -30,10 +30,10 @@ class ShiftCipher(private val message: String, private var stepsShifted: Int) : 
 
             val startIndex = alphabetArray.indexOf(letter)
             var shiftedIndex = startIndex + this.stepsShifted
-            while (shiftedIndex >= alphabetArray.size) {
+            if (shiftedIndex >= alphabetArray.size) {
                 shiftedIndex -= alphabetArray.size
             }
-            while (shiftedIndex < 0) shiftedIndex += alphabetArray.size
+            if (shiftedIndex < 0) shiftedIndex += alphabetArray.size
             alphabetArray[shiftedIndex]
         } else {
             letter

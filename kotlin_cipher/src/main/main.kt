@@ -7,8 +7,11 @@ import tests.TestClass
 
 fun main() {
 
+
+    var list = listOf<Int>(1,2,3)
+
     testShiftCipher()
-    testNumberCipher()
+
 }
 
 
